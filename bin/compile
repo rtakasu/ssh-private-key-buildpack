@@ -26,6 +26,9 @@ if [ "$ssh_key" != "" ]; then
 		ssh -oStrictHostKeyChecking=no -T $i 2>&1 | indent
 	done
 
+  eval `ssh-agent -s`
+  ssh-add
+
 	exit 0
 else
 	echo "-----> No SSH private key"
